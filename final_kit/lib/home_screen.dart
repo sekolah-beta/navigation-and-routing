@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -20,15 +21,15 @@ class HomeScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             FilledButton(
-              onPressed: () => Navigator.of(context).pushNamed('/tab'),
+              onPressed: () => context.pushNamed('tab'),
               child: const Text('Tab Navigation'),
             ),
             FilledButton(
-              onPressed: () => Navigator.of(context).pushNamed('/drawer'),
+              onPressed: () => context.pushNamed('drawer'),
               child: const Text('Drawer Navigation'),
             ),
             FilledButton(
-              onPressed: () => Navigator.of(context).pushNamed('/stack'),
+              onPressed: () => context.pushNamed('stack'),
               child: const Text('Stack Navigation'),
             ),
           ],

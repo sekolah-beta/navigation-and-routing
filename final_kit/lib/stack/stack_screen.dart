@@ -1,5 +1,5 @@
-import 'second_data_screen.dart';
-import 'second_screen.dart';
+import '../app_router.dart';
+import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
 
 class StackScreen extends StatefulWidget {
@@ -22,27 +22,22 @@ class _StackScreenState extends State<StackScreen> {
           children: [
             FilledButton(
               onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => const SecondScreen()),
-                );
+                context.pushNamed(AppRoute.stackSecond);
               },
               child: const Text('Go to Second Screen'),
             ),
             FilledButton(
               onPressed: () async {
-                final result = await Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => const SecondDataScreen(
-                      title: 'TITLE',
-                    ),
-                  ),
+                final result = await context.pushNamed(
+                  AppRoute.stackSecondData,
+                  extra: {'title': 'TITLE'},
                 );
                 // When a BuildContext is used from a StatefulWidget, the mounted property
                 // must be checked after an asynchronous gap.
                 if (!context.mounted) return;
 
                 // to show data from secondscreen
-                if (result != null) {
+                if (result != null && result is String) {
                   ScaffoldMessenger.of(context)
                     ..removeCurrentSnackBar()
                     ..showSnackBar(SnackBar(content: Text(result)));

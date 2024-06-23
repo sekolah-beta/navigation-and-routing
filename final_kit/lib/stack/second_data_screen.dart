@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class SecondDataScreen extends StatelessWidget {
   const SecondDataScreen({super.key, required this.title});
@@ -16,13 +17,13 @@ class SecondDataScreen extends StatelessWidget {
           children: [
             FilledButton(
               onPressed: () {
-                Navigator.of(context).pop();
+                context.pop();
               },
               child: const Text('Kembali ke halaman sebelumnya'),
             ),
             FilledButton(
               onPressed: () {
-                Navigator.of(context).pop('ini data dari halaman selection');
+                context.pop('ini data dari halaman selection');
               },
               child: const Text('Kembali ke halaman sebelumnya dengan data'),
             ),

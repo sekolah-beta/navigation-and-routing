@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class SecondScreen extends StatelessWidget {
   const SecondScreen({super.key});
@@ -12,7 +13,7 @@ class SecondScreen extends StatelessWidget {
       body: Center(
         child: FilledButton(
           onPressed: () {
-            Navigator.of(context).pop();
+            context.pop();
           },
           child: const Text('Kembali ke halaman sebelumnya'),
         ),
