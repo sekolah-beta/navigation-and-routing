@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'drawer/drawer_screen.dart';
-import 'stack/stack_screen.dart';
-import 'tab/tab_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -23,15 +20,15 @@ class HomeScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             FilledButton(
-              onPressed: () => pushToScreen(context, const TabScreen()),
+              onPressed: () => Navigator.of(context).pushNamed('/tab'),
               child: const Text('Tab Navigation'),
             ),
             FilledButton(
-              onPressed: () => pushToScreen(context, const DrawerScreen()),
+              onPressed: () => Navigator.of(context).pushNamed('/drawer'),
               child: const Text('Drawer Navigation'),
             ),
             FilledButton(
-              onPressed: () => pushToScreen(context, const StackScreen()),
+              onPressed: () => Navigator.of(context).pushNamed('/stack'),
               child: const Text('Stack Navigation'),
             ),
           ],
